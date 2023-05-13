@@ -5,5 +5,5 @@ const router = require('express').Router();
 router.get('/posts', getAllPosts)
 router.get('/posts/:id', getTeacherPosts)
 router.post('/posts', AddPosts)
-router.delete('/posts', DeletePosts)
-router.put('/posts',UpdatePosts)
+router.delete('/posts/id', DeletePosts)
+router.put('/posts/:id',UpdatePosts)
