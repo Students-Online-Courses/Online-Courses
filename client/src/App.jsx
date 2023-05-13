@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import React , {useState , useEffect} from 'react';
 import {Routes , Route , BrowserRouter} from 'react-router-dom';
 import axios from 'axios';
@@ -6,6 +7,11 @@ import AllPosts from './components/AllPosts';
 import Comment from './components/Comment';
 import CreatePosts from './components/CreatePosts';
 import UpdatePosts from './components/UpdatePosts';
+=======
+import Homepage from "./components/HomePage/Homepage";
+
+
+>>>>>>> Stashed changes
 
 
 const App =() =>{
@@ -26,6 +32,7 @@ const App =() =>{
       })
       }
   return (
+<<<<<<< Updated upstream
     <BrowserRouter><div className='app'>
       <Routes>
         <Route path='/AllPosts' element =  {<AllPosts/>}></Route>
@@ -36,6 +43,10 @@ const App =() =>{
       </div></BrowserRouter>
   )
 
+=======
+ <Homepage/>
+  );
+>>>>>>> Stashed changes
 }
 
 export default App;
