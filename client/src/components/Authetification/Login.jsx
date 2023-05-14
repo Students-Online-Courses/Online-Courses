@@ -66,7 +66,7 @@ const Login = () => {
             placeholder='Enter your password'
           />
         </div>
-        <button type='submit' className='submit-btn' onClick={() => {navigate()}}>
+        <button type='submit' className='submit-btn' onClick={() => {navigate("/CreatePosts")}}>
           Login
         </button>
         {errorMessage && <p className='error-message'>{errorMessage}</p>}

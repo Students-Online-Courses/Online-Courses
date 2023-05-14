@@ -31,9 +31,9 @@ const Homepage = () => {
           students with experienced teachers.
         </p>
       </div>
-      <footer class='footer contact-us'>
+      <footer className='footer contact-us'>
         <h2>CONTACT US:</h2>
-        <div class='contact-info'>
+        <div className='contact-info'>
           <div>
             <h5>Email:</h5>
             <p>rinezkhouloud@gmail.com</p>
