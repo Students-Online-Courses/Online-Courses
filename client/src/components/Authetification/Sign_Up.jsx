@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Sign_Up.css";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Sign_Up = ({ showLogin }) => {
   const [fullName, setFullName] = useState("");
@@ -116,7 +117,7 @@ const Sign_Up = ({ showLogin }) => {
     }
     showLogin(role);
   };
-
+  const navigate = useNavigate();
   return (
     <div className='sign_in-container'>
       <h2>Sign Up</h2>
@@ -207,7 +208,7 @@ const Sign_Up = ({ showLogin }) => {
         <button type='submit' onClick={signup}>Sign Up</button>
         <p>
           Already have an account?{" "}
-          <button type='button' onClick={showLogin}>
+          <button type='button' onClick={() => navigate('/login')}>
             Login
           </button>
         </p>

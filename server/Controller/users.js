@@ -4,8 +4,8 @@ const jwt = require("jsonwebtoken");
 
 const {
   getAllUsers,
-  getOneUser,
-  postUser,
+  login,
+  signup,
   updateUser,
   deleteUser,
 } = require("../model/users.js");
@@ -15,48 +15,46 @@ module.exports = {
   getUser: (req, res) => {
     getAllUsers((req, results) => res.json(results));
   },
-  
-  
-  signIn_User: async (req, res) => {
+
+  login: async (req, res) => {
     try {
       let email = req.body.userEmail;
       let password = req.body.userPassword;
-  
-      const response = await getOneUser((err, results) => {
+
+      const response = await login((err, results) => {
         if (err) {
           console.log(err);
-          res.status(404).json('bad request');
+          res.status(404).json("bad request");
         } else {
           if (results.length === 0) {
             res.json("Wrong email ladyBOI");
           } else {
             const user = results[0];
-            console.log('Password:', password);
-            console.log('User Password:', user.userPassword);
+            console.log("Password:", password);
+            console.log("User Password:", user.userPassword);
             bcrypt.compare(password, user.userPassword, (err, result) => {
               if (err) {
                 console.log(err);
-                res.status(500).json('Internal Server Error');
+                res.status(500).json("Internal Server Error");
               } else {
                 if (result) {
                   const token = jwt.sign({ userEmail: email }, SECRET_KEY);
                   res.json({ token: token });
                 } else {
-                  res.json('Wrong password');
+                  res.json("Wrong password");
                 }
               }
             });
           }
         }
       }, req.body.userEmail);
-  
     } catch (err) {
       console.log(err);
-      res.status(500).json('Internal Server Error');
+      res.status(500).json("Internal Server Error");
     }
   },
-  
-  addUser: (req, res) => {
+
+  signup: (req, res) => {
     const password = req.body.userPassword;
     const saltR = 10;
     bcrypt
@@ -65,7 +63,7 @@ module.exports = {
         return bcrypt.hash(password, salt);
       })
       .then((hash) => {
-        postUser(
+        signup(
           (err, result) => {
             if (err) res.status(500).send(err);
             else res.status(200).send(result);

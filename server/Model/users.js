@@ -7,36 +7,21 @@ const getAllUsers = (callback) => {
   });
 };
 
-const getOneUser = (callback, body) => {
-    const sql = " select * from users where userEmail = ?";
-    connection.query(sql, body, (err, results) => {
-      callback(err, results)
-});
-}
-   
-
-const postUser = (callback, body) => { 
-  const sql= 'insert into users (userFullName, userEmail, userPassword, userRole, userSection) values (?, ?, ?, ?, ?)'
-   connection.query(sql, body, (err,results)=>{
-    callback(err,results)
-   })
+const login = (callback, body) => {
+  const sql = " select * from users where userEmail = ?";
+  connection.query(sql, body, (err, results) => {
+    callback(err, results);
+  });
 };
 
+const signup = (callback, body) => {
+  const sql =
+    "insert into users (userFullName, userEmail, userPassword, userRole, userSection) values (?, ?, ?, ?, ?)";
+  connection.query(sql, body, (err, results) => {
+    callback(err, results);
+  });
+};
 
-
-// const postUser = (callback, body) => {
-//   const password = req.body.password;
-//   const saltR = 10;
-//   bcrypt.genSalt(saltR).then((salt) => {
-//     return bcrypt.hash(password, salt);
-//   }).then((hash)=>  {
-//     const sql = "insert into users set ? ";
-//   connection.query(sql, [fullName:req.body.fullName], (err, results) => {
-//     callback(err, results);
-//   });
-//   })
- 
-// };
 const updateUser = (callback, body) => {
   const sql = "update users set ? where idUser=?";
   connection.query(sql, body, (err, results) => {
@@ -52,8 +37,8 @@ const deleteUser = (callback, id) => {
 
 module.exports = {
   getAllUsers,
-  getOneUser,
-  postUser,
+  login,
+  signup,
   updateUser,
   deleteUser,
 };

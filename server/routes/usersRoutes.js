@@ -1,4 +1,4 @@
-const { getUser, signIn_User, addUser } = require('../Controller/users');
+const { getUser, login, signup } = require('../controller/users');
 
 
 
@@ -7,7 +7,7 @@ const { getUser, signIn_User, addUser } = require('../Controller/users');
 const router = require('express').Router();
 
 router.get('/users',getUser)
-router.post('/Oneu',signIn_User)
-router.post('/users',addUser)
+router.post('/Oneu',login)
+router.post('/users', signup)
 
 module.exports = router;
