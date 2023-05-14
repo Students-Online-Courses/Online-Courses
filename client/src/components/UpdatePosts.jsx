@@ -1,5 +1,7 @@
 import React , {useState} from "react";
 import axios from "axios";
+import './UpdatePosts.css';
+import logo from './HomePage/images/logo.png'
 
 const UpdatePosts = (props) =>  {
     const [title , setTitle] = useState(props.title);
@@ -19,12 +21,54 @@ const UpdatePosts = (props) =>  {
         )
     }
     return (
-        <div>
-            <textarea value={title} placeholder="update-title" onChange={(e)=>{setTitle(e.target.value)}}/>
-            <textarea value={section} placeholder="update-section" onChange={(e)=>{setSection(e.target.value)}}/>
-            <textarea value={content} placeholder="update-content" onChange={(e)=>{setContent(e.target.value)}}/>
-            <button className="update-button" onClick={()=>{update()}}>update</button>
+        <div className="create-post-container">
+        <div className="navbar">
+          <div className="navbar-left">
+            <img src={logo} alt="Logo" className="logo" />
+            <span className="navbar-brand">OnlineCourses</span>
+          </div>
+          <div className="navbar-middle">
+            <button className="navbar-btn">logout</button>
+            
+          
         </div>
+        <div className="form-container">
+        <div className="input">
+          <input
+            type="text"
+            className="form-input"
+            value={title}
+            placeholder="Update Title"
+            onChange={(e) => {
+              setTitle(e.target.value);
+            }}
+          /> 
+          </div> 
+          <div className="input">
+          <input
+            type="text"
+            className="form-input"
+            value={section}
+            placeholder="Update Section"
+            onChange={(e) => {
+              setSection(e.target.value);
+            }}
+          /> </div>
+          <div className="input">
+          <textarea
+            className="form-textarea"
+            value={content}
+            placeholder="Update Content"
+            onChange={(e) => {
+              setContent(e.target.value);
+            }}
+          /> </div>
+          <button className="submit-button" onClick={() => update()}>
+            Update
+          </button>
+        </div>
+      </div>
+    </div>
     )
 }
 

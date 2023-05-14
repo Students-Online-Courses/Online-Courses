@@ -1,17 +1,13 @@
-<<<<<<< Updated upstream
 import React , {useState , useEffect} from 'react';
 import {Routes , Route , BrowserRouter} from 'react-router-dom';
 import axios from 'axios';
-import './App.css';
+
 import AllPosts from './components/AllPosts';
 import Comment from './components/Comment';
 import CreatePosts from './components/CreatePosts';
 import UpdatePosts from './components/UpdatePosts';
-=======
-import Homepage from "./components/HomePage/Homepage";
-
-
->>>>>>> Stashed changes
+import Homepage from './components/HomePage/Homepage';
+import PostDetails from './components/PostDetails';
 
 
 const App =() =>{
@@ -32,9 +28,9 @@ const App =() =>{
       })
       }
   return (
-<<<<<<< Updated upstream
     <BrowserRouter><div className='app'>
       <Routes>
+      <Route path='/' element =  {<CreatePosts/>}></Route>
         <Route path='/AllPosts' element =  {<AllPosts/>}></Route>
         <Route path='/Comment' element = {<Comment/>} ></Route>
         <Route path='/CreatePosts' element = {<CreatePosts/>} ></Route>
@@ -43,10 +39,6 @@ const App =() =>{
       </div></BrowserRouter>
   )
 
-=======
- <Homepage/>
-  );
->>>>>>> Stashed changes
 }
 
 export default App;
