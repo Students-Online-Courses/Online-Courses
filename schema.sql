@@ -20,7 +20,7 @@ USE `onlinecourses` ;
 -- -----------------------------------------------------
 -- Table `onlinecourses`.`users`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `onlinecourses`.`users` (
+CREATE TABLE IF NOT EXISTS `OnlineCourses`.`users` (
   `idUser` INT NOT NULL AUTO_INCREMENT,
   `userFullName` VARCHAR(255) NOT NULL,
   `userEmail` VARCHAR(255) NOT NULL,
@@ -47,9 +47,10 @@ CREATE TABLE IF NOT EXISTS `onlinecourses`.`courses` (
   INDEX `fk_courses_users_idx` (`users_user-id` ASC) VISIBLE,
   CONSTRAINT `fk_courses_users`
     FOREIGN KEY (`users_user-id`)
-    REFERENCES `onlinecourses`.`users` (`idUser`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb3;
+    REFERENCES `OnlineCourses`.`users` (`idUser`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
@@ -62,15 +63,17 @@ CREATE TABLE IF NOT EXISTS `onlinecourses`.`comments` (
   `courses_idcourses` INT NOT NULL,
   PRIMARY KEY (`idcomments`, `users_user-id`, `courses_idcourses`),
   INDEX `fk_comments_courses1_idx` (`courses_idcourses` ASC) VISIBLE,
-  INDEX `fk_comments_users1` (`users_user-id` ASC) VISIBLE,
-  CONSTRAINT `fk_comments_courses1`
-    FOREIGN KEY (`courses_idcourses`)
-    REFERENCES `onlinecourses`.`courses` (`idcourses`),
   CONSTRAINT `fk_comments_users1`
     FOREIGN KEY (`users_user-id`)
-    REFERENCES `onlinecourses`.`users` (`idUser`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb3;
+    REFERENCES `OnlineCourses`.`users` (`idUser`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_comments_courses1`
+    FOREIGN KEY (`courses_idcourses`)
+    REFERENCES `OnlineCourses`.`courses` (`idcourses`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
