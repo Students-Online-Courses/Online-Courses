@@ -10,7 +10,7 @@ const PostDetails = (props) =>{
     const [showComments ,setShowComments] = useState(false);
     const [content ,setContent] = useState('');
     const addComment =() =>{
-        axios.post('http://localhost:3000/comments',{content:content}).then((response)=>
+        axios.post('http://localhost:3000/api/comments',{content:content}).then((response)=>
         console.log(response)
         ).catch((error)=>
         console.log(error)
@@ -23,7 +23,7 @@ const PostDetails = (props) =>{
         setUpdatPost(!updatPost);
     }
     const deletPost =() =>{
-        axios.delete('http://localhost:3000/posts/${props.data.id}')
+        axios.delete('http://localhost:3000/api/posts/${props.data.id}')
         window.location.reload().then((response)=>
         console.log(response)
         ).catch((error)=>

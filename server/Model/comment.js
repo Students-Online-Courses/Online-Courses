@@ -1,4 +1,4 @@
-
+const connection = require ("../database/index.js");
 const getAllComments = (callback) => {
     const sql='select * from comments'
     connection.query(sql,(err,results)=>{

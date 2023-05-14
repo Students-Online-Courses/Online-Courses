@@ -5,9 +5,9 @@ module.exports = {
         res.json(results)
     )
     },
-    getPosts : (req, res) =>{
-      getOnePosts((req, results)=>
-       res.json(results)
+    getOne : (req, res) =>{
+      getOnePosts((req, results)=>{
+       res.json(results) },req.body.title
       )
     },
       getTeacherPosts : (req,res)=>{
