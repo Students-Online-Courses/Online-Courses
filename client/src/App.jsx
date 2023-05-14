@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import axios from "axios";
@@ -10,36 +11,22 @@ import Homepage from "./components/HomePage/Homepage";
 import Login from "./components/Authetification/Login";
 import Sign_Up from "./components/Authetification/Sign_Up";
 
-const App = () => {
-  const [data, setData] = useState([]);
-  const [user, setUser] = useState([]);
 
-  useEffect(() => {
-    getPosts();
-  }, []);
-  useEffect(() => {
-    getUsers();
-  }, []);
+const App = () => {
+const [data,setData] = useState ([]);
+  const[update,setUpdate] = useState([false])
+  useEffect (()=>{getPosts()},[update]);
+
   const getPosts = () => {
-    axios
-      .get("http://localhost:3000/posts")
-      .then((response) => {
-        setData(response.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
-  const getUsers = () => {
-    axios
-      .get("http://localhost:3000/users")
-      .then((response) => {
-        setData(response.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
+    axios.get('http://localhost:3000/api/posts').then(response => {
+      console.log("data",response.data)
+      setData(response.data)
+      console.log("2",data)
+    })
+    .catch (error => {
+      console.error(error)
+    })
+    }
   return (
     <BrowserRouter>
       <div className='app'>
@@ -47,7 +34,7 @@ const App = () => {
           <Route path='/' element={<Homepage />}></Route>
           <Route path='/AllPosts' element={<AllPosts />}></Route>
           <Route path='/Comment' element={<Comment />}></Route>
-          <Route path='/CreatePosts' element={<CreatePosts />}></Route>
+          <Route path='/CreatePosts' element={<CreatePosts update={update} setUpdate={setUpdate} />}></Route>
           <Route path='/UpdatePosts' element={<UpdatePosts />}></Route>
           <Route path='/login' element={<Login />}></Route>
           <Route path='/signup' element={<Sign_Up />}></Route>
@@ -56,5 +43,6 @@ const App = () => {
     </BrowserRouter>
   );
 };
+
 
 export default App;
