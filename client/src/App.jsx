@@ -38,6 +38,7 @@ const [data,setData] = useState ([]);
           <Route path='/UpdatePosts' element={<UpdatePosts />}></Route>
           <Route path='/login' element={<Login />}></Route>
           <Route path='/signup' element={<Sign_Up />}></Route>
+          
         </Routes>
       </div>
     </BrowserRouter>

@@ -28,7 +28,13 @@ const Login = () => {
           userPassword: password,
         })
         .then((response) => {
-          alert(response.data);
+          const res = response.data;
+          if (res === "Wrong password") alert(res);
+          else if (res === "Wrong email ladyBOI") alert(res);
+          else {
+            navigate("/AllPosts");
+          }
+  
         })
         .catch((err) => console.log(err));
     }
@@ -60,7 +66,7 @@ const Login = () => {
             placeholder='Enter your password'
           />
         </div>
-        <button type='submit' className='submit-btn' onClick={() => {}}>
+        <button type='submit' className='submit-btn' onClick={() => {navigate()}}>
           Login
         </button>
         {errorMessage && <p className='error-message'>{errorMessage}</p>}
