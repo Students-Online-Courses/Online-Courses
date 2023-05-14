@@ -1,3 +1,4 @@
+
 const { getPosts, getOne, getTeacherPosts, deleted, update, add } = require('../Controller/posts');
 
 

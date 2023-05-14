@@ -1,4 +1,4 @@
-const { getAllComments, AddComments } = require("../Model/comment")
+const { getAllComments, AddComments } = require("../model/comment")
 
   module.exports = {
     getComments : (req, res) => {

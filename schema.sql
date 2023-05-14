@@ -20,7 +20,9 @@ USE `onlinecourses` ;
 -- -----------------------------------------------------
 -- Table `onlinecourses`.`users`
 -- -----------------------------------------------------
+
 CREATE TABLE IF NOT EXISTS `onlinecourses`.`users` (
+
   `idUser` INT NOT NULL AUTO_INCREMENT,
   `userFullName` VARCHAR(255) NOT NULL,
   `userEmail` VARCHAR(255) NOT NULL,
@@ -54,6 +56,7 @@ AUTO_INCREMENT = 100
 DEFAULT CHARACTER SET = utf8mb3;
 
 
+
 -- -----------------------------------------------------
 -- Table `onlinecourses`.`comments`
 -- -----------------------------------------------------
@@ -64,6 +67,7 @@ CREATE TABLE IF NOT EXISTS `onlinecourses`.`comments` (
   `users_idUser` INT NOT NULL,
   PRIMARY KEY (`idcomments`),
   INDEX `fk_comments_courses1_idx` (`courses_idcourses` ASC) VISIBLE,
+
   INDEX `fk_comments_users1_idx` (`users_idUser` ASC) VISIBLE,
   CONSTRAINT `fk_comments_courses1`
     FOREIGN KEY (`courses_idcourses`)
@@ -74,6 +78,7 @@ CREATE TABLE IF NOT EXISTS `onlinecourses`.`comments` (
 ENGINE = InnoDB
 AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8mb3;
+
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
