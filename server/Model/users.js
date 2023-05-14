@@ -7,6 +7,13 @@ const getAllUsers = (callback) => {
   });
 };
 
+const getOneUser = (callback, id) => {
+  const sql = "select * from users where userEmail = ?"
+  connection.query(sql, id, (err, results) => {
+    callback(err, results);
+  });
+}
+
 const login = (callback, body) => {
   const sql = " select * from users where userEmail = ?";
   connection.query(sql, body, (err, results) => {
@@ -37,6 +44,7 @@ const deleteUser = (callback, id) => {
 
 module.exports = {
   getAllUsers,
+  getOneUser,
   login,
   signup,
   updateUser,

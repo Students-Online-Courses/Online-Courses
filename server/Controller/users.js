@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken");
 
 const {
   getAllUsers,
+  getOneUser,
   login,
   signup,
   updateUser,
@@ -14,6 +15,15 @@ const { json } = require("body-parser");
 module.exports = {
   getUser: (req, res) => {
     getAllUsers((req, results) => res.json(results));
+  },
+
+  get_one_User: (req, res) => {
+    getOneUser(
+      (req, results) => {
+        res.json(results);
+      },
+      [req.params.userEmail],
+    );
   },
 
   login: async (req, res) => {
