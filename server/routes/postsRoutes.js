@@ -1,4 +1,4 @@
-const { getAllPosts, AddPosts, getTeacherPosts, DeletePosts, UpdatePosts } = require('../Controller.js/posts');
+const { getAllPosts, AddPosts, getTeacherPosts, DeletePosts, UpdatePosts } = require('../controller/posts');
 
 const router = require('express').Router();
 

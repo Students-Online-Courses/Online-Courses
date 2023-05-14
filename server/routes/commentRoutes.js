@@ -1,4 +1,4 @@
-const { getAllComments, AddComment } = require('../Controller.js/comments');;
+const { getAllComments, AddComment } = require('../controller/comments');;
 const router = require('express').Router();
 
 

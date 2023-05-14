@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Login from './components/Authetification/Login';
+import Sign_Up from './components/Authetification/Sign_Up';
 
-function App() {
+const App = () => {
+  const [showSignUp, setShowSignUp] = useState(false);
+  const [showLogin, setShowLogin] = useState(true);
+  const [role, setRole] = useState("");
+
+  const handleShowSignUp = () => {
+    setShowSignUp(true);
+    setShowLogin(false);
+    setRole(role);
+  };
+
+  const handleShowLogin = () => {
+    setShowSignUp(false);
+    setShowLogin(true);
+    setRole(role);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {showLogin && <Login showSignUp={handleShowSignUp} />}
+      {showSignUp && <Sign_Up showLogin={handleShowLogin} role={role} /> }
     </div>
   );
 }
