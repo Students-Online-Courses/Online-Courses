@@ -7,7 +7,7 @@ const UpdatePosts = (props) =>  {
     const [content, setContent] = useState(props.content);
 
     const update = () => {
-        axios.put('http://localhost:3000/api/posts/${props.id}',{
+        axios.put(`http://localhost:3000/api/posts/${109}`,{
             title: title,
             section: section,
             content: content
