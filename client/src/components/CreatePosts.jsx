@@ -4,7 +4,8 @@ import axios from 'axios';
 import './CreatePosts.css'
 import logo from './HomePage/images/logo.png';
 
-const CreatePosts = (props) => {
+const CreatePosts = ({update,setUpdate}) => {
+
 const [title , setTitle] = useState('');
 const [section , setSection] = useState('');
 const [content , setContent] = useState('');
@@ -12,20 +13,22 @@ const [content , setContent] = useState('');
 
 
 const addPost = () => {
-axios.post('http://localhost:3000/posts',{
+axios.post('http://localhost:3000/api/posts',{
     title: title,
     section: section,
     content: content,
-    users_user_id: 1
+    users_idUser: 1
     // hedhi provisoir hata tjini id shiha mta3 user
     
 })
-window.location.reload().then(function (respense) { 
-console.log(respense)
+.then(function (response) { 
+    alert('Post added')
+setUpdate(!update)
+
 }).catch(function (err) {
     console.log(err)
 });
-alert('Post added')
+
 }
 return (
     <div className="create-post-container">
@@ -38,6 +41,7 @@ return (
         <button className="navbar-btn">logout</button>
         
       </div>
+    
     </div>
     <div className="form">
       <div className="input">

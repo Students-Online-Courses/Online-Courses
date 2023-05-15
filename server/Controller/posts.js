@@ -1,13 +1,13 @@
-const {getAllPosts,getOnePosts,getTeacherPosts,AddPosts,deletePosts,updatePosts} = require('../Model/posts.js')
+const {getAllPosts,getOnePosts,getTeacherPosts,AddPosts,deletePosts,updatePosts} = require('../model/posts.js')
 module.exports = {
   getPosts : (req, res) => {
     getAllPosts((req, results) => 
         res.json(results)
     )
     },
-    getPosts : (req, res) =>{
-      getOnePosts((req, results)=>
-       res.json(results)
+    getOne : (req, res) =>{
+      getOnePosts((req, results)=>{
+       res.json(results) },req.body.title
       )
     },
       getTeacherPosts : (req,res)=>{

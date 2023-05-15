@@ -1,4 +1,4 @@
-
+const connection = require ("../database/index.js");
 module.exports = {
  getAllPosts : (callback) => {
     const sql='select * from courses'
@@ -14,7 +14,7 @@ module.exports = {
     })
  },
  getTeacherPosts : (callback,id) => {
-    const sql= 'SELECT * FROM courses WHERE users_user-id = ?'
+    const sql= 'SELECT * FROM courses WHERE users_idUser = ?'
     connection.query(sql,id,(err,results)=>{
      callback(err,results)
     })

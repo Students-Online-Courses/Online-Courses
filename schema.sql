@@ -20,11 +20,9 @@ USE `onlinecourses` ;
 -- -----------------------------------------------------
 -- Table `onlinecourses`.`users`
 -- -----------------------------------------------------
-<<<<<<< Updated upstream
+
 CREATE TABLE IF NOT EXISTS `onlinecourses`.`users` (
-=======
-CREATE TABLE IF NOT EXISTS `OnlineCourses`.`users` (
->>>>>>> Stashed changes
+
   `idUser` INT NOT NULL AUTO_INCREMENT,
   `userFullName` VARCHAR(255) NOT NULL,
   `userEmail` VARCHAR(255) NOT NULL,
@@ -34,6 +32,7 @@ CREATE TABLE IF NOT EXISTS `OnlineCourses`.`users` (
   PRIMARY KEY (`idUser`),
   UNIQUE INDEX `userEmail_UNIQUE` (`userEmail` ASC) VISIBLE)
 ENGINE = InnoDB
+AUTO_INCREMENT = 6
 DEFAULT CHARACTER SET = utf8mb3;
 
 
@@ -46,21 +45,16 @@ CREATE TABLE IF NOT EXISTS `onlinecourses`.`courses` (
   `section` VARCHAR(255) NOT NULL,
   `content` VARCHAR(255) NOT NULL,
   `createdAt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `users_user-id` INT NOT NULL,
-  PRIMARY KEY (`idcourses`, `users_user-id`),
-  INDEX `fk_courses_users_idx` (`users_user-id` ASC) VISIBLE,
+  `users_idUser` INT NOT NULL,
+  PRIMARY KEY (`idcourses`),
+  INDEX `fk_courses_users_idx` (`users_idUser` ASC) VISIBLE,
   CONSTRAINT `fk_courses_users`
-    FOREIGN KEY (`users_user-id`)
-<<<<<<< Updated upstream
+    FOREIGN KEY (`users_idUser`)
     REFERENCES `onlinecourses`.`users` (`idUser`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 100
 DEFAULT CHARACTER SET = utf8mb3;
-=======
-    REFERENCES `OnlineCourses`.`users` (`idUser`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
->>>>>>> Stashed changes
+
 
 
 -- -----------------------------------------------------
@@ -69,37 +63,24 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `onlinecourses`.`comments` (
   `idcomments` INT NOT NULL AUTO_INCREMENT,
   `comment` VARCHAR(255) NOT NULL,
-  `users_user-id` INT NOT NULL,
   `courses_idcourses` INT NOT NULL,
-  PRIMARY KEY (`idcomments`, `users_user-id`, `courses_idcourses`),
+  `users_idUser` INT NOT NULL,
+  PRIMARY KEY (`idcomments`),
   INDEX `fk_comments_courses1_idx` (`courses_idcourses` ASC) VISIBLE,
-<<<<<<< Updated upstream
-  INDEX `fk_comments_users1` (`users_user-id` ASC) VISIBLE,
+
+  INDEX `fk_comments_users1_idx` (`users_idUser` ASC) VISIBLE,
   CONSTRAINT `fk_comments_courses1`
     FOREIGN KEY (`courses_idcourses`)
     REFERENCES `onlinecourses`.`courses` (`idcourses`),
   CONSTRAINT `fk_comments_users1`
-    FOREIGN KEY (`users_user-id`)
+    FOREIGN KEY (`users_idUser`)
     REFERENCES `onlinecourses`.`users` (`idUser`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8mb3;
-=======
-  CONSTRAINT `fk_comments_users1`
-    FOREIGN KEY (`users_user-id`)
-    REFERENCES `OnlineCourses`.`users` (`idUser`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_comments_courses1`
-    FOREIGN KEY (`courses_idcourses`)
-    REFERENCES `OnlineCourses`.`courses` (`idcourses`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
->>>>>>> Stashed changes
+
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
- 
- 
