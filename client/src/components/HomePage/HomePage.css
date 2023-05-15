@@ -186,3 +186,53 @@ hr {
   margin-right: 10px;
   cursor: pointer;
 }
+
+.card:hover{
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+
+
+
+.post-container {
+  background-color: white;
+  margin-top: 100px;
+}
+
+.post {
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.post-header {
+  
+  text-align: center;   
+}
+
+.post-title {
+  font-size: 70px;
+  font-weight: bold;
+  
+}
+
+.comment-time {
+  font-size: 20px;
+}
+
+.post-section {
+  font-size: 45px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.post-content {
+  margin-top: 25px;
+  text-align: center;
+  font-size: 50px;
+}
+
+
+

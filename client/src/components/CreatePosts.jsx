@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "./HomePage/images/logo.png";
 import axios from "axios";
+import './CreatePosts.css'
 
 const CreatePosts = ({ update, setUpdate }) => {
   const [title, setTitle] = useState("");
@@ -30,7 +31,7 @@ const CreatePosts = ({ update, setUpdate }) => {
         title: title,
         section: section,
         content: content,
-        users_idUser: 6
+        users_idUser: 19
       })
       .then(function (response) {
         alert("Post added");
@@ -70,29 +71,29 @@ const CreatePosts = ({ update, setUpdate }) => {
           </button>
         </div>
       </nav>
-      <div>
-        <div className='imput'>
+      <div className="form">
+        <div className='input'>
           <textarea
             placeholder='title'
-            className='courses-imput'
+            className='courses-input'
             onChange={(e) => {
               setTitle(e.target.value);
             }}
           />
         </div>
-        <div className='imput'>
+        <div className='input'>
           <textarea
             placeholder='section'
-            className='courses-imput'
+            className='courses-input'
             onChange={(e) => {
               setSection(e.target.value);
             }}
           />
         </div>
-        <div className='imput'>
+        <div className='input'>
           <textarea
             placeholder='content'
-            className='courses-imput'
+            className='courses-input'
             onChange={(e) => {
               setContent(e.target.value);
             }}

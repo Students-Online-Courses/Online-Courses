@@ -69,3 +69,21 @@ button[type="button"]:hover {
   font-size: 14px;
   margin-top: 5px;
 }
+
+
+
+.submit-btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #f9a826;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background-color: #c57e0d;
+}
+

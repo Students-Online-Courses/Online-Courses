@@ -32,11 +32,17 @@ const Login = () => {
           if (res === "Wrong password") alert(res);
           else if (res === "Wrong email ladyBOI") alert(res);
           else {
-            navigate("/AllPosts");
+            axios.get(`http://localhost:3000/api/oneUser/${email}`).then((response) => {
+              
+              if(response.data[0]["userRole"] === "student") { navigate("/StudentView") }
+              else if (response.data[0]["userRole"] === "teacher") { 
+                navigate("/allCourses")
+              }
+            })
+            
           }
-  
         })
-        .catch((err) => console.log(err));
+        .catch((err) => console.log(err))
     }
   };
 
@@ -66,9 +72,8 @@ const Login = () => {
             placeholder='Enter your password'
           />
         </div>
-        <button type='submit' className='submit-btn' onClick={() => {navigate("/allCourses")}}>
-          Login
-        </button>
+        <input type='submit' className='submit-btn' value="LOGIN" />
+         
         {errorMessage && <p className='error-message'>{errorMessage}</p>}
         <p>
           You don't have an account?{" "}

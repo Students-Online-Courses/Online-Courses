@@ -14,7 +14,7 @@ const TeacherCourses = () => {
     const navigate = useNavigate();
 
     const deletCourse =() =>{
-      axios.delete(`http://localhost:3000/api/posts/${111}`)
+      axios.delete(`http://localhost:3000/api/posts/${118}`)
       .then((response)=> {
       console.log(response)
     setUpdate(!update)
@@ -25,7 +25,7 @@ const TeacherCourses = () => {
   }
 
   const getCourses = () => {
-    axios.get(`http://localhost:3000/api/posts/${7}`).then(response => {
+    axios.get(`http://localhost:3000/api/posts/${19}`).then(response => {
       console.log("data",response.data)
       setData(response.data)
       console.log("2",data)
@@ -71,7 +71,7 @@ const TeacherCourses = () => {
                     <div key={i}>
                     <div className="card">
                       <div className="card-content">
-                        <h2>{e.title}</h2>
+                        <h2 onClick={()=>(navigate("/postDetails"))}>{e.title}</h2>
                         <h3>{e.section}</h3>
                       </div>
                       <div className="card-actions">

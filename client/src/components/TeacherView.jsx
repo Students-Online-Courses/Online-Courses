@@ -52,6 +52,14 @@ const TeacherView = () => {
             onClick={() => navigate("/CreatePosts")}>
             Create course
           </button>
+          <button
+            className='navbar-btn'
+            onClick={() => 
+              navigate("/")
+            
+            }>
+            Sign out
+          </button>
         </div>
       </nav>
       <div className="card-container">
@@ -59,7 +67,7 @@ const TeacherView = () => {
             data.map((e, i) => {
                 return (
                     <div key={i} >
-                    <div className="card">
+                    <div className="card" onClick={()=>(navigate("/postDetails"))}>
                       <div className="card-content">
                         <h2>{e.title}</h2>
                         <h3>{e.section}</h3>

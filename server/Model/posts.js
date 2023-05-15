@@ -7,9 +7,9 @@ module.exports = {
     })
  },
 
-  getOnePosts : (callback,body) => {
-    const sql= 'SELECT * FROM courses WHERE title = ?'
-    connection.query(sql,body,(err,results)=>{
+  getOnePosts : (callback,id) => {
+    const sql= 'SELECT * FROM courses WHERE idCourses = ?'
+    connection.query(sql,id,(err,results)=>{
      callback(err,results)
     })
  },

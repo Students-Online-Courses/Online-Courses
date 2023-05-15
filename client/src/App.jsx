@@ -11,6 +11,8 @@ import Login from "./components/Authetification/Login";
 import Sign_Up from "./components/Authetification/Sign_Up";
 import TeacherView from "./components/TeacherView";
 import TeacherCourses from "./components/TeacherCourses";
+import StudentView from "./components/StudentView";
+import PostDetails from "./components/PostDetails";
 
 
 const App = () => {
@@ -31,6 +33,8 @@ const App = () => {
           <Route path='/allCourses' element={<TeacherView />}></Route>
           <Route path='/myCourses' element={<TeacherCourses />}></Route>
           <Route path='/edit' element={<UpdatePosts />}></Route>
+          <Route path='/StudentView' element={<StudentView />}></Route>
+          <Route path='/postDetails' element={<PostDetails />}></Route>
           
         </Routes>
       </div>

@@ -5,7 +5,7 @@ const { getPosts, getOne, getTeacherPosts, deleted, update, add } = require('../
 const router = require('express').Router();
 
 router.get('/posts', getPosts )
-router.get('/onePost', getOne )
+router.get('/onePost/:id', getOne )
 router.get('/posts/:id', getTeacherPosts )
 router.post('/posts', add)
 router.delete('/posts/:id', deleted)
